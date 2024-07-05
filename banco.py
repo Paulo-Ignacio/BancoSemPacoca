@@ -61,6 +61,59 @@ def editar_usuario(cpf):
 # Adicione a função fechar_conta aqui
 # Adicione a função consultar_saldo aqui
 
+print("""
+------------------
+|SISTEMA DE BANCO|
+------------------
+* Opção 1: Cadastrar usuário;
+* Opção 2: Depositar;
+* Opção 3: Sacar;
+* Opção 4: Transferir;
+* Opção 5: Gerar extrato;
+* Opção 6: Editar usuário;
+* Opção 7: Sair.
+""")
+while True:
+    opcao = input('Selecione uma opção para proseguir: ')
+
+    if opcao in '1234567': # Se a opção for válida
+
+        if opcao == '1':
+            pass # Cadastrar Usuário (Grupo 4)
+        elif opcao == '2':
+            pass # Depositar (Grupo 4)
+        elif opcao == '3':
+            pass # Sacar (Grupo 1)
+        elif opcao == '4':
+            pass # Transferir (Grupo 1)
+        elif opcao == '5':
+            pass # Gerar extrato (Grupo 3)
+        elif opcao == '6':
+            pass # Editar usuário (Grupo 3)
+        elif opcao == '7':
+            break # Sair
+
+        print("""
+        ------------------
+        |SISTEMA DE BANCO|
+        ------------------
+        * Opção 1: Cadastrar usuário;
+        * Opção 2: Depositar;
+        * Opção 3: Sacar;
+        * Opção 4: Transferir;
+        * Opção 5: Gerar extrato;
+        * Opção 6: Editar usuário;
+        * Opção 7: Sair.
+        """)
+    
+    else:
+        print('-----------------------------------')
+        print('|ERRO: Selecione uma opção válida!|')
+        print('-----------------------------------')
+
+
+
+"""
 # Cadastro de usuários (exemplo)
 cadastrar_usuario("João", "12345678900")
 cadastrar_usuario("Maria", "09876543211")
@@ -74,4 +127,4 @@ transferir("12345678900", "09876543211", 300.0)
 gerar_extrato("12345678900")
 print()
 gerar_extrato("09876543211")
-
+"""
