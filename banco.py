@@ -4,6 +4,24 @@ usuarios = {}
 # Dicionário para armazenar contas correntes
 contas = {}
 
+def validar_cpf():
+    while True:
+        cpf = input('Digite o seu CPF: ')
+
+        # Tratamento de entrada
+        cpf = cpf.replace(' ', '')
+        cpf = cpf.replace('.', '')
+        cpf = cpf.replace('-', '')
+
+        # Checa se o CPF inserido é uma sequência de 11 digitos decimais; 
+        # se sim, retorna o CPF para seguir com o programa, caso contrário, emite um erro reinicia o laço While.
+        if cpf.isdecimal() and len(cpf) == 11:
+            return cpf
+        else:
+            print('-----------------------------')
+            print('|ERRO: Digite um CPF válido!|')
+            print('-----------------------------')
+
 def cadastrar_usuario(nome, cpf):
     if cpf in usuarios:
         print("Usuário já cadastrado.")
@@ -61,7 +79,8 @@ def editar_usuario(cpf):
 # Adicione a função fechar_conta aqui
 # Adicione a função consultar_saldo aqui
 
-print("""
+print(
+"""
 ------------------
 |SISTEMA DE BANCO|
 ------------------
@@ -73,6 +92,7 @@ print("""
 * Opção 6: Editar usuário;
 * Opção 7: Sair.
 """)
+
 while True:
     opcao = input('Selecione uma opção para proseguir: ')
 
@@ -93,25 +113,24 @@ while True:
         elif opcao == '7':
             break # Sair
 
-        print("""
-        ------------------
-        |SISTEMA DE BANCO|
-        ------------------
-        * Opção 1: Cadastrar usuário;
-        * Opção 2: Depositar;
-        * Opção 3: Sacar;
-        * Opção 4: Transferir;
-        * Opção 5: Gerar extrato;
-        * Opção 6: Editar usuário;
-        * Opção 7: Sair.
+        print(
+        """
+------------------
+|SISTEMA DE BANCO|
+------------------
+* Opção 1: Cadastrar usuário;
+* Opção 2: Depositar;
+* Opção 3: Sacar;
+* Opção 4: Transferir;
+* Opção 5: Gerar extrato;
+* Opção 6: Editar usuário;
+* Opção 7: Sair.
         """)
     
     else:
         print('-----------------------------------')
         print('|ERRO: Selecione uma opção válida!|')
         print('-----------------------------------')
-
-
 
 """
 # Cadastro de usuários (exemplo)
