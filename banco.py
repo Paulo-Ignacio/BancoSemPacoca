@@ -44,6 +44,9 @@ def sacar(cpf, valor):
         else:
             contas[cpf]["saldo"] -= valor
             contas[cpf]["extrato"].append(f"Saque: -R${valor:.2f}")
+            print("-------------------------")
+            print(f" saque de {valor} realizado com sucesso!")
+            print("-------------------------")
     else:
         print("Usuário não encontrado.")
 
@@ -103,9 +106,68 @@ while True:
         elif opcao == '2':
             pass # Depositar (Grupo 4)
         elif opcao == '3':
-            pass # Sacar (Grupo 1)
+            cpf =validar_cpf()
+            opcoes =["1", "2", "3", "4", "5", "6", "7", "8"]
+            while True:
+                print("-------------------------------------------")
+                print(  
+                        """ opções de saque:
+                            1. 10         5. 200
+                            2. 20         6. 400
+                            3. 50         7. Outro
+                            4. 100        8. Voltar Menu principal
+                        """)
+                print("-------------------------------------------")
+
+                opcao = input("digite a OPÇÃO de acordo com o valor desejado: ")
+                if opcao in opcoes: 
+                        
+                    if opcao == "1":
+                        sacar(cpf, 10)
+                        break
+                    elif opcao == "2":
+                        sacar(cpf, 20)
+                        break
+                    elif opcao == "3":
+                        sacar(cpf, 50)
+                        break
+                    elif opcao == "4":
+                        sacar(cpf, 100)
+                        break
+                    elif opcao == "5":
+                        sacar(cpf, 200)
+                        break
+                    elif opcao == "6":
+                        sacar(cpf, 400)
+                        break
+                    elif opcao == "7":
+                        valor = int(input("digite o valor saque desejado: "))
+                        sacar(cpf, valor)
+                        break
+                    elif opcao == "8":
+                        break
+                else:    
+                    print('|ERRO: opção inválida!  Digite uma OPÇÃO correspondente ao valor de saque!|')
         elif opcao == '4':
-            pass # Transferir (Grupo 1)
+            print("TRANSFERÊNCIA")
+            print("---CPF DE ORIGEM---")
+            cpf_origem = validar_cpf()
+            print("---CPF DE DESTINO---")   
+            cpf_destino = validar_cpf()
+            print("---VALOR DA TRANFERÊNCIA---")
+            
+            while True:
+                try:
+                    valor = float(input("Digite o valor da transferência:R$ "))
+                    if valor <= 0:
+                        print("---Valor muito baixo. Digite um valor válido.---")
+                    else:
+                        break
+                except ValueError:
+                    print("Atenção! Valor inválido. Digite um valor valido." )
+
+            transferir(cpf_origem, cpf_destino, valor)
+            print("!!!Transferência concluida com sucesso!!!")
         elif opcao == '5':
             pass # Gerar extrato (Grupo 3)
         elif opcao == '6':
