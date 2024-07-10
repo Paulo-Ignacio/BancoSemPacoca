@@ -34,6 +34,7 @@ def depositar(cpf, valor):
     if cpf in contas:
         contas[cpf]["saldo"] += valor
         contas[cpf]["extrato"].append(f"Depósito: +R${valor:.2f}")
+        print(f"Depósito de R${valor:.2f} realizado com sucesso.")
     else:
         print("Usuário não encontrado.")
 
@@ -99,9 +100,13 @@ while True:
     if opcao in '1234567': # Se a opção for válida
 
         if opcao == '1':
-            pass # Cadastrar Usuário (Grupo 4)
+            nome = input("Digite o nome: ").strip()
+            cpf = validar_cpf()
+            cadastrar_usuario(nome, cpf)
         elif opcao == '2':
-            pass # Depositar (Grupo 4)
+            cpf = validar_cpf()
+            valor = float(input("Digite o valor para depósito: "))
+            depositar(cpf, valor)
         elif opcao == '3':
             pass # Sacar (Grupo 1)
         elif opcao == '4':
